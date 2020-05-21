@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>X-Files API documentation</title>
+</head>
+
+<body>
+    <h1>Available Routes</h1>
+    <h3>/filterByState/:state</h3>
+    <h4>Valid State:</h4>
+    <ul>
+        <%allStates.forEach((state) => {%>
+        <li><a href="/filterByState/<%=state%>"><%=state%></a></li>
+        <%});%>
+    </ul>
+    <h3>/filterByCity/:city</h3>
+    <h4>Valid City:</h4>
+    <ul>
+        <%allCities.forEach((city) => {%>
+        <li><a href="/filterByCity/<%=city%>"><%=city%></a></li>
+        <%});%>
+    </ul>
+    <h3>/filterByDate/:date</h3>
+    <h4>Valid Date:</h4>
+    <ul>
+        <%allDates.forEach((date) => {%>
+        <li><a href="/filterByDate/<%=date%>"><%=date.split('/').join('-')%></a></li>
+        <%});%>
+    </ul>
+    <h3>/filterByShape/:shape</h3>
+    <h4>Valid Shape:</h4>
+    <ul>
+        <%allShapes.forEach((shape) => {%>
+        <li><a href="/filterByShape/<%=shape%>"><%=shape%></a></li>
+        <%});%>
+    </ul>
+</body>
+
+</html>
