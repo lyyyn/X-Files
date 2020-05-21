@@ -8,6 +8,10 @@
     "start": "node server.js",
     "dev": "nodemon server.js"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lyyyn/Exobiology-Scientist-List.git"
+  },
   "author": "",
   "license": "ISC",
   "dependencies": {
