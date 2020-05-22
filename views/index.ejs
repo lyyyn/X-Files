@@ -5,72 +5,147 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>X-Files API documentation</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.2/css/bulma.min.css">
+    <link rel="stylesheet" href="main.css">
 </head>
 
 <body>
-    <h1 id="top">Available Routes</h1>
-    <h2><a href="/all">View All Sightings</a></h2>
-    <h2><a href="#filterstate">Filter by State</a></h2>
-    <h2><a href="#filtercity">Filter by City</a></h2>
-    <h2><a href="#filterdate">Filter by Date</a></h2>
-    <h2><a href="#filtershape">Filter by Shape</a></h2>
-    <hr>
-    <h3>Filter by Combination of any</h3>
-    <form action="/filter" method="GET">
-        <label for="state">State</label>
-        <select id="state" name="state">
-            <option value=""></option>
+    <div class="container">
+        <h1 class="title" id="top">Available Routes</h1>
+        <h2 class="button"><a href="/all">View All Sightings</a></h2>
+        <h2 class="button"><a href="#filterstate">Filter by State</a></h2>
+        <h2 class="button"><a href="#filtercity">Filter by City</a></h2>
+        <h2 class="button"><a href="#filterdate">Filter by Date</a></h2>
+        <h2 class="button"><a href="#filtershape">Filter by Shape</a></h2>
+        <hr>
+        <h3 class="title">Filter by Combination of any</h3>
+        <form action="/filter" method="GET">
+            <div class="field">
+                <div class="label">
+                    <label for="state">State</label>
+                </div>
+                <div class="select">
+                    <select id="state" name="state">
+                        <option value=""></option>
+                        <%allStates.forEach((state) => {%>
+                        <option value="<%=state%>"><%=state%></option>
+                        <%});%>
+                    </select>
+                </div>
+            </div>
+            <div class="field">
+                <div class="label">
+                    <label for="city">City</label>
+                </div>
+                <div class="select">
+                    <select id="city" name="city">
+                        <option value=""></option>
+                        <%allCities.forEach((city) => {%>
+                        <option value="<%=city%>"><%=city%></option>
+                        <%});%>
+                    </select>
+                </div>
+            </div>
+            <div class="field">
+                <div class="label">
+                    <label for="date">Date</label>
+                </div>
+                <div class="select">
+                    <select id="date" name="date">
+                        <%allDates.forEach((date) => {%>
+                        <option value="<%=date%>"><%=date%></option>
+                        <%});%>
+                    </select>
+                </div>
+            </div>
+            <div class="field">
+                <div class="label">
+                    <label for="shape">Shape</label>
+                </div>
+                <div class="select">
+                    <select id="shape" name="shape">
+                        <option value=""></option>
+                        <%allShapes.forEach((shape) => {%>
+                        <option value="<%=shape%>"><%=shape%></option>
+                        <%});%>
+                    </select>
+                </div>
+            </div>
+            <div class="field is-grouped">
+                <div class="control">
+                    <input class="button is-link" type="submit" value="Go">
+                </div>
+                <div class="control">
+                    <input class="button is-primary" type="reset" value="Reset">
+                </div>
+            </div>
+        </form>
+        <hr>
+        <div class=" field is-grouped">
+            <div class="control">
+                <span class="title" id="filterstate">Filter by State</span>
+            </div>
+            <div class="control">
+                <a class="button is-grey-lighter" href="#top">Back to Top</a>
+            </div>
+        </div>
+        <div class="field is-grouped is-grouped-multiline">
             <%allStates.forEach((state) => {%>
-                <option value="<%=state%>"><%=state%></option>
+            <div class="control">
+                <a class="button is-light" href="/filter?state=<%=state%>&city=&date=&shape="><%=state%></a>
+            </div>
             <%});%>
-        </select>
-        <label for="city">City</label>
-        <select id="city" name="city">
-            <option value=""></option>
+        </div>
+        <hr>
+        <div class=" field is-grouped">
+            <div class="control">
+                <span class="title" id="filtercity">Filter by City</span>
+            </div>
+            <div class="control">
+                <a class="button is-grey-lighter" href="#top">Back to Top</a>
+            </div>
+        </div>
+        <div class="field is-grouped is-grouped-multiline">
             <%allCities.forEach((city) => {%>
-                <option value="<%=city%>"><%=city%></option>
+            <div class="control">
+                <a class="button is-light" href="/filter?state=&city=<%=city%>&date=&shape="><%=city%></a>
+            </div>
             <%});%>
-        </select>
-        <label for="date">Date</label>
-        <select id="date" name="date">
+        </div>
+        <hr>
+        <div class=" field is-grouped">
+            <div class="control">
+                <span class="title" id="filterdate">Filter by Date</span>
+            </div>
+            <div class="control">
+                <a class="button is-grey-lighter" href="#top">Back to Top</a>
+            </div>
+        </div>
+        <div class="field is-grouped is-grouped-multiline">
             <%allDates.forEach((date) => {%>
-                <option value="<%=date%>"><%=date%></option>
+            <div class="control">
+                <a class="button is-light"
+                    href="/filter?state=&city=&date=<%=date%>&shape="><%=date.split('/').join('-')%></a>
+            </div>
             <%});%>
-        </select>
-        <label for="shape">Shape</label>
-        <select id="shape" name="shape">
-            <option value=""></option>
+        </div>
+        <hr>
+        <div class=" field is-grouped">
+            <div class="control">
+                <span class="title" id="filtershape">Filter by Shape</span>
+            </div>
+            <div class="control">
+                <a class="button is-grey-lighter" href="#top">Back to Top</a>
+            </div>
+        </div>
+        <div class="field is-grouped is-grouped-multiline">
             <%allShapes.forEach((shape) => {%>
-                <option value="<%=shape%>"><%=shape%></option>
+            <div class="control">
+                <a class="button is-light" href="filter?state=&city=&date=&shape=<%=shape%>"><%=shape%></a>
+            </div>
             <%});%>
-        </select>
-        <input type="submit" value="Go">
-    </form>
-    <hr>
-    <h3 id="filterstate">Filter by State</h3> <span><a href="#top">Back to Top</a></span>
-    <ul>
-        <%allStates.forEach((state) => {%>
-        <li><a href="/filter?state=<%=state%>&city=&date=&shape="><%=state%></a></li>
-        <%});%>
-    </ul>
-    <h3 id="filtercity">Filter by City</h3> <span><a href="#top">Back to Top</a></span>
-    <ul>
-        <%allCities.forEach((city) => {%>
-        <li><a href="/filter?state=&city=<%=city%>&date=&shape="><%=city%></a></li>
-        <%});%>
-    </ul>
-    <h3 id="filterdate">Filter by Date</h3> <span><a href="#top">Back to Top</a></span>
-    <ul>
-        <%allDates.forEach((date) => {%>
-        <li><a href="/filter?state=&city=&date=<%=date%>&shape="><%=date.split('/').join('-')%></a></li>
-        <%});%>
-    </ul>
-    <h3 id="filtershape">Filter by Shape</h3> <span><a href="#top">Back to Top</a></span>
-    <ul>
-        <%allShapes.forEach((shape) => {%>
-        <li><a href="filter?state=&city=&date=&shape=<%=shape%>"><%=shape%></a></li>
-        <%});%>
-    </ul>
+        </div>
+    </div>
 </body>
 
 </html>

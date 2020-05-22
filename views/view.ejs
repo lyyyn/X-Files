@@ -4,22 +4,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><%=title%></title>
+    <title><%=title%></title>    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.2/css/bulma.min.css">
+    <link rel="stylesheet" href="main.css">
 </head>
 
 <body>
-    <h1><%=title%></h1> <span><a href="/">Back to Index</a></span>
-    <%allSightings.forEach((sgt,idx) => {%>
-    <hr />
-    <h4>Date: <%=sgt.date%></h4>
-    <h4>City: <%=sgt.city%></h4>
-    <h4>State: <%=sgt.state%></h4>
-    <h4>Shape: <%=sgt.shape%></h4>
-    <h4>Duration: <%=sgt.duration%></h4>
-    <h4>Description: </h4>
-    <p><%=sgt.description%></p>
-    <%});%>
-
+    <div class="container">
+        <div class=" field is-grouped">
+            <div class="control">
+                <span class="title" id="filterdate"><%=title%></span>
+            </div>
+            <div class="control">
+                <a class="button is-grey-lighter" href="/">Back to Index</a>
+            </div>
+        </div>
+        <%allSightings.forEach((sgt,idx) => {%>
+        <hr />
+        <h4>Date: <%=sgt.date%></h4>
+        <h4>City: <%=sgt.city%></h4>
+        <h4>State: <%=sgt.state%></h4>
+        <h4>Shape: <%=sgt.shape%></h4>
+        <h4>Duration: <%=sgt.duration%></h4>
+        <h4>Description: </h4>
+        <p><%=sgt.description%></p>
+        <%});%>
+    </div>
 </body>
 
 </html>
