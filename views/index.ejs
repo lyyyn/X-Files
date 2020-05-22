@@ -5,7 +5,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>X-Files API documentation</title>
-    <script src="/index.js"></script>
 </head>
 
 <body>
@@ -17,7 +16,7 @@
     <h2><a href="#filtershape">Filter by Shape</a></h2>
     <hr>
     <h3>Filter by Combination of any</h3>
-    <form>
+    <form action="/filter" method="GET">
         <label for="state">State</label>
         <select id="state" name="state">
             <option value=""></option>
@@ -45,7 +44,7 @@
                 <option value="<%=shape%>"><%=shape%></option>
             <%});%>
         </select>
-        <a href="#0"><button onclick="setFilterURL()">Go</button></a>
+        <input type="submit" value="Go">
     </form>
     <hr>
     <h3 id="filterstate">Filter by State</h3> <span><a href="#top">Back to Top</a></span>
