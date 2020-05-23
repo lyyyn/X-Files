@@ -11,6 +11,9 @@ Create index of sightings from JSON files. With links to details page and custom
 ### Goal
 Index and dynamics view files based on user input.
 
+### Demo
+https://x-files-sightings.herokuapp.com/ 
+
 ### Technology Used
 - Javascript
 - Node / Express
